@@ -29,3 +29,66 @@
 .products-section h2 {
   margin-bottom: 20px;
 }
+
+.categories {
+  display: flex;
+  gap: 10px;
+
+  margin-bottom: 24px;
+
+  overflow-x: auto;
+
+  padding-bottom: 4px;
+}
+
+.categories button {
+  padding: 9px 16px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+
+  background: white;
+
+  color: #374151;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: all 0.2s ease;
+}
+
+.categories button:hover {
+  background: #f3f4f6;
+}
+
+.categories button.active {
+  background: #2563eb;
+  color: white;
+
+  border-color: #2563eb;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 100%;
+
+  padding: 13px 16px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  background: white;
+
+  font-size: 15px;
+
+  box-sizing: border-box;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #2563eb;
+}

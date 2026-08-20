@@ -6,6 +6,14 @@
   gap: 20px;
 }
 
+.empty-products {
+  padding: 60px 20px;
+
+  text-align: center;
+
+  color: #6b7280;
+}
+
 @media (max-width: 1000px) {
   .product-list {
     grid-template-columns: repeat(3, 1fr);
