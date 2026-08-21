@@ -10,6 +10,7 @@ function Home() {
   const [error, setError] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("default");
 
   useEffect(() => {
     async function fetchProducts() {
@@ -34,18 +35,34 @@ function Home() {
     ...new Set(products.map((product) => product.category)),
   ];
 
-  const filteredProducts = products.filter((product) => {
-    const matchesCategory =
-      selectedCategory === "all" ||
-      product.category === selectedCategory;
+  const filteredProducts = products
+    .filter((product) => {
+      const matchesCategory =
+        selectedCategory === "all" ||
+        product.category === selectedCategory;
 
-    const matchesSearch =
-      product.title
-        .toLowerCase()
-        .includes(search.toLowerCase());
+      const matchesSearch =
+        product.title
+          .toLowerCase()
+          .includes(search.toLowerCase());
 
-    return matchesCategory && matchesSearch;
-  });
+      return matchesCategory && matchesSearch;
+    })
+    .sort((a, b) => {
+      if (sort === "price-low") {
+        return a.price - b.price;
+      }
+
+      if (sort === "price-high") {
+        return b.price - a.price;
+      }
+
+      if (sort === "rating") {
+        return b.rating.rate - a.rating.rate;
+      }
+
+      return 0;
+    });
 
   if (loading) {
     return (
@@ -80,13 +97,39 @@ function Home() {
 
         <h2>Products</h2>
 
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+        <div className="products-controls">
+
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+
+          <select
+            className="sort-select"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="default">
+              Sort: Default
+            </option>
+
+            <option value="price-low">
+              Price: Low to High
+            </option>
+
+            <option value="price-high">
+              Price: High to Low
+            </option>
+
+            <option value="rating">
+              Rating: High to Low
+            </option>
+          </select>
+
         </div>
 
         <div className="categories">

@@ -76,20 +76,3 @@
   background: #1d4ed8;
 }
 
-@media (max-width: 1000px) {
-  .product-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .product-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .product-list {
-    grid-template-columns: 1fr;
-  }
-}
