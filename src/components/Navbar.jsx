@@ -1,24 +1,32 @@
 import "./../styles/Navbar.css";
+import { Link } from "react-router-dom";
+import { useCart } from "./../context/CartContext";
 
 function Navbar() {
+  const { cart } = useCart();
+
   return (
     <nav className="navbar">
 
       <div className="navbar-logo">
-        ShopStore
+        <Link to="/">
+          ShopStore
+        </Link>
       </div>
 
       <div className="navbar-links">
 
-        <a href="/">Home</a>
+        <Link to="/">
+          Home
+        </Link>
 
-        <a href="/products">
+        <Link to="/">
           Products
-        </a>
+        </Link>
 
-        <a href="/cart">
-          🛒 Cart
-        </a>
+        <Link to="/cart">
+          🛒 Cart ({cart.length})
+        </Link>
 
       </div>
 
