@@ -5,6 +5,11 @@ import { useCart } from "./../context/CartContext";
 function Navbar() {
   const { cart } = useCart();
 
+  const cartItemCount = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
     <nav className="navbar">
 
@@ -20,12 +25,12 @@ function Navbar() {
           Home
         </Link>
 
-        <Link to="/">
+        <a href="#products">
           Products
-        </Link>
+        </a>
 
         <Link to="/cart">
-          🛒 Cart ({cart.length})
+          🛒 Cart ({cartItemCount})
         </Link>
 
       </div>

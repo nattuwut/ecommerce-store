@@ -93,7 +93,10 @@ function Home() {
         </p>
       </section>
 
-      <section className="products-section">
+      <section
+        id="products"
+        className="products-section"
+      >
 
         <h2>Products</h2>
 
