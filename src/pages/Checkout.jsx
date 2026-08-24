@@ -1,6 +1,6 @@
 import "./../styles/Checkout.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./../context/CartContext";
 
@@ -11,6 +11,12 @@ function Checkout() {
   } = useCart();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate("/cart");
+    }
+  }, [cart, navigate]);
 
   const [formData, setFormData] = useState({
     name: "",

@@ -32,6 +32,11 @@ function Cart() {
             Add some products to your cart
             to get started.
           </p>
+
+          <Link to="/">
+            Continue Shopping
+          </Link>
+
         </div>
 
       </main>
