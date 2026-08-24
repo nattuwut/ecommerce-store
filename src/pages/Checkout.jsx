@@ -1,10 +1,16 @@
 import "./../styles/Checkout.css";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "./../context/CartContext";
 
 function Checkout() {
-  const { cart } = useCart();
+  const {
+    cart,
+    clearCart,
+  } = useCart();
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -67,10 +73,18 @@ function Checkout() {
       return;
     }
 
-    console.log("Order:", {
+    const order = {
       customer: formData,
-      cart,
-    });
+      items: cart,
+      total,
+      createdAt: new Date().toISOString(),
+    };
+
+    console.log("Order:", order);
+
+    clearCart();
+
+    navigate("/success");
   }
 
   const subtotal = cart.reduce(
