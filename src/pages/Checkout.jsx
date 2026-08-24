@@ -13,6 +13,8 @@ function Checkout() {
     address: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   function handleChange(event) {
     const { name, value } = event.target;
 
@@ -20,10 +22,50 @@ function Checkout() {
       ...prev,
       [name]: value,
     }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  }
+
+  function validateForm() {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        formData.email
+      )
+    ) {
+      newErrors.email = "Please enter a valid email.";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone is required.";
+    }
+
+    if (!formData.address.trim()) {
+      newErrors.address = "Address is required.";
+    }
+
+    return newErrors;
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    const newErrors = validateForm();
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     console.log("Order:", {
       customer: formData,
@@ -66,6 +108,12 @@ function Checkout() {
             placeholder="Your name"
           />
 
+          {errors.name && (
+            <p className="form-error">
+              {errors.name}
+            </p>
+          )}
+
           <label>
             Email
           </label>
@@ -77,6 +125,12 @@ function Checkout() {
             onChange={handleChange}
             placeholder="you@example.com"
           />
+
+          {errors.email && (
+            <p className="form-error">
+              {errors.email}
+            </p>
+          )}
 
           <label>
             Phone
@@ -90,6 +144,12 @@ function Checkout() {
             placeholder="08xxxxxxxx"
           />
 
+          {errors.phone && (
+            <p className="form-error">
+              {errors.phone}
+            </p>
+          )}
+
           <label>
             Address
           </label>
@@ -101,6 +161,12 @@ function Checkout() {
             placeholder="Your shipping address"
             rows="5"
           />
+
+          {errors.address && (
+            <p className="form-error">
+              {errors.address}
+            </p>
+          )}
 
           <button
             type="submit"

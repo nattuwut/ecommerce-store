@@ -168,6 +168,14 @@
   font-weight: 700;
 }
 
+.form-error {
+  margin: -4px 0 4px;
+
+  color: #dc2626;
+
+  font-size: 14px;
+}
+
 @media (max-width: 800px) {
   .checkout {
     padding: 40px 16px;
