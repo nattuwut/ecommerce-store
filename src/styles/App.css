@@ -17,8 +17,28 @@ select {
 
 .app {
   min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

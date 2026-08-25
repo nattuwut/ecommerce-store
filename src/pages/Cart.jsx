@@ -77,6 +77,7 @@ function Cart() {
                     onClick={() =>
                       decreaseQuantity(item.id)
                     }
+                    aria-label="Decrease quantity"
                   >
                     −
                   </button>
@@ -89,6 +90,7 @@ function Cart() {
                     onClick={() =>
                       increaseQuantity(item.id)
                     }
+                    aria-label="Increase quantity"
                   >
                     +
                   </button>

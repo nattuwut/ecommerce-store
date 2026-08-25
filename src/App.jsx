@@ -21,34 +21,37 @@ function App() {
 
       <Navbar />
 
-      <Routes>
+      <main className="main-content">
 
-        <Route
-          path="/"
-          element={<Home />}
-        />
+        <Routes>
 
-        <Route
-          path="/products/:id"
-          element={<ProductDetails />}
-        />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-        <Route
-          path="/cart"
-          element={<Cart />}
-        />
+          <Route
+            path="/products/:id"
+            element={<ProductDetails />}
+          />
 
-        <Route
-          path="/checkout"
-          element={<Checkout />}
-        />
+          <Route
+            path="/cart"
+            element={<Cart />}
+          />
 
-        <Route
-          path="/success"
-          element={<OrderSuccess />}
-        />
+          <Route
+            path="/checkout"
+            element={<Checkout />}
+          />
 
-      </Routes>
+          <Route
+            path="/success"
+            element={<OrderSuccess />}
+          />
+
+        </Routes>
+      </main>
 
       <Footer />
 

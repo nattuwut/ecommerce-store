@@ -34,10 +34,12 @@
 
 .footer-links {
     display: flex;
-
+    align-items: center;
     gap: 24px;
 
-    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .footer-links a {

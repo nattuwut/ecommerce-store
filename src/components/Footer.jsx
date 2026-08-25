@@ -1,6 +1,39 @@
 import "./../styles/Footer.css";
 
+import {
+  Link,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+
 function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  function handleProductsClick(event) {
+    event.preventDefault();
+
+    if (location.pathname === "/") {
+      document
+        .getElementById("products")
+        ?.scrollIntoView({
+          behavior: "smooth",
+        });
+
+      return;
+    }
+
+    navigate("/");
+
+    setTimeout(() => {
+      document
+        .getElementById("products")
+        ?.scrollIntoView({
+          behavior: "smooth",
+        });
+    }, 100);
+  }
+
   return (
     <footer className="footer">
 
@@ -14,24 +47,39 @@ function Footer() {
           </p>
         </div>
 
-        <div className="footer-links">
+        <ul className="footer-links">
 
-          <a href="#products">
-            Products
-          </a>
+          <li>
+            <Link to="/">
+              Home
+            </Link>
+          </li>
 
-          <a href="/">
-            Home
-          </a>
+          <li>
+            <a
+              href="#products"
+              onClick={handleProductsClick}
+            >
+              Products
+            </a>
+          </li>
 
-        </div>
+          <li>
+            <Link to="/cart">
+              Cart
+            </Link>
+          </li>
+
+        </ul>
 
       </div>
 
       <div className="footer-bottom">
+
         <p>
           © 2026 ShopStore. All rights reserved.
         </p>
+
       </div>
 
     </footer>

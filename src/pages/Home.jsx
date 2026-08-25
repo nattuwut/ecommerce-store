@@ -132,6 +132,7 @@ function Home() {
             <input
               type="text"
               placeholder="Search products..."
+              aria-label="Search products"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -141,6 +142,7 @@ function Home() {
             className="sort-select"
             value={sort}
             onChange={(e) => setSort(e.target.value)}
+            aria-label="Sort products"
           >
             <option value="default">
               Sort: Default
@@ -171,6 +173,7 @@ function Home() {
                   ? "active"
                   : ""
               }
+              aria-pressed={selectedCategory === category}
               onClick={() =>
                 setSelectedCategory(category)
               }
