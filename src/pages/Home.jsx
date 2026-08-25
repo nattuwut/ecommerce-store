@@ -67,7 +67,17 @@ function Home() {
   if (loading) {
     return (
       <main className="home">
-        <p>Loading products...</p>
+
+        <div className="loading-state">
+
+          <div className="loading-spinner"></div>
+
+          <p>
+            Loading products...
+          </p>
+
+        </div>
+
       </main>
     );
   }
@@ -75,7 +85,23 @@ function Home() {
   if (error) {
     return (
       <main className="home">
-        <p>{error}</p>
+
+        <div className="error-state">
+
+          <div className="error-icon">
+            ⚠️
+          </div>
+
+          <h2>
+            Something went wrong
+          </h2>
+
+          <p>
+            {error}
+          </p>
+
+        </div>
+
       </main>
     );
   }

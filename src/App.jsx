@@ -9,9 +9,11 @@ import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
+import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
+
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
         />
 
       </Routes>
+
+      <Footer />
 
     </div>
   );
