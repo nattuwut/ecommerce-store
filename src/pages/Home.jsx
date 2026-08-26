@@ -111,7 +111,7 @@ function Home() {
 
       <section className="hero">
         <h1>
-          Find products you love.
+          Shop Smarter, Live Better.
         </h1>
 
         <p>
